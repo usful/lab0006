@@ -285,14 +285,6 @@ export default class Layout extends React.Component {
     });
 
     // Default sort
-    data.push(...data);
-    data.push(...data);
-    data = _.sortBy(data, [function (c) {
-      const i = _.indexOf(colorCodes, c['business simulation'].averageScore);
-      return (i >= 0) ? i : colorCodes.length - 1;
-    }, function (c) {
-      return c.name.split(' ').pop();
-    }]);
     this.setState({data}); 
   }
 
@@ -343,7 +335,7 @@ export default class Layout extends React.Component {
           <div className="master-container leaderboard">
             <div className="container">
               <div className={"row leaderboard"}>
-                <CandidateTable activeTable={this.state.activeKey} data={this.state.data} staticScores={this.state.staticScores} />
+                <CandidateTable activeTable={this.state.activeKey} data={this.state.data} staticScores={this.state.staticScores} colorCodes={colorCodes} />
               </div>
             </div>
           </div>
