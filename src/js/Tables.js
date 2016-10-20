@@ -24,7 +24,8 @@ function commentList (alist, cc) {
   }
 }
 
-export class MyTable extends React.Component {
+
+class MyTable extends React.Component {
   constructor (th) {
     super();
     this.th = th;
@@ -197,3 +198,27 @@ export class TableMarketingAssessment extends MyTable {
     );
   }
 }
+
+export default class CandidateTable extends React.Component {
+
+  render () {
+    switch (this.props.activeTable) {
+      case 1:
+        return (
+          <TableTotalSummary id="table-1" {...this.props} />
+        );
+        break;
+      case 2:
+        return (
+          <TableBusinessSimulation id="table-2" {...this.props} />
+        );
+        break;
+      case 3:
+        return (
+          <TableMarketingAssessment id="table-3" {...this.props} />
+        );
+        break;
+    }
+  }
+}
+

@@ -13,33 +13,29 @@
 {
   position: fixed;
   padding: 20px 0 40px 0;
-  height: 40px;
   background-color: white;
 }
-.master-container.leaderboard {
-  padding-top: 100px;
-}
-#controlled-tab .nav-tabs
+.master-container.header .container
 {
+  min-height: 40px;
+  height: 40px;
 }
-.master-container .container {
-  margin: 0 auto;
+.master-container.controls {
+  padding-top: 100px;
+  position: fixed;
 }
-.master-container.leaderboard {
+.master-container.controls .container
+{
+  min-height: 45px;
+  background-color: white;
 }
-.master-container.leaderboard .nav-tabs {
+.master-container.leaderboard
+{
+  padding-top: 145px;
 }
-
-.controlled-tab {
-}
-
-.tab-content {
-}
-.tab-content .table > thead {
-  xmax-height: 55px;
-}
-.tab-content .table > tbody {
-  xpadding-top: 55px;
+.leaderboard .table > thead > tr  {
+  min-height: 55px;
+  background-color: white;
 }
 
 img.logo {
@@ -51,7 +47,10 @@ img.logo {
 
 .nav-tabs {
   border: 0;
-  background-color: #E6E6E6;
+  background-color: #f5f5f5;
+}
+.nav-tabs > li {
+  height: 42px;
 }
 .nav-tabs>li>a {
   margin: 0;
@@ -68,77 +67,40 @@ img.logo {
   border-bottom: 0;
 }
 
-.table > thead > tr,
-.table > tbody > tr,
-{
-  width: 1170px;
-}
-
-.tab-content >
-
-.table > thead 
-{
-}
-
 .table > thead > tr > th
 {
   font-size: 14px;
+}
+.table {
 }
 .table > thead > tr > th,
 .table > thead > tr > td,
 .table > tbody > tr > th,
 .table > tbody > tr > td
 {
-  min-width: 80px;
+  min-width: 150px;
+  min-height: 44px;
 }
-/*
-.table {
-  min-width: 1000px;
-}
-.table > thead > tr.col-6 > td,
-.table > thead > tr.col-6 > th
+.table > thead > tr > th:first-child,
+.table > thead > tr > td:first-child,
+.table > tbody > tr > th:first-child,
+.table > tbody > tr > td:first-child
 {
-}
-.table > thead > tr.col-7 > td,
-.table > thead > tr.col-7 > th
-{
-  width: 12%;
-
-}
-.table > thead > tr.col-8 > td,
-.table > thead > tr.col-8 > th
-{
-  width: 10.5%;
-}
-.table {
-  z-index: -5;
-}
-.table tr > th,
-.table tr > th
-{
-}
-.table tr > th:first-child
-{
-  width: 15%;
-}
-.table > thead > tr > td:nth-child(2)
-{
-}
-.table > thead > tr > th {
-  height: 40px !important;
-}
-.table tr > :nth-child(2)
-{
-  padding-left: 150px !important;
-}
-.table tr > :first-child {
   position: absolute;
-  padding-left: 2px;
-  display: table-cell;
-  z-index: 1;
-  width: 150px;
+  background-color: white;
 }
-*/
+.table > thead > tr > th:nth-child(2),
+.table > thead > tr > td:nth-child(2),
+.table > tbody > tr > th:nth-child(2),
+.table > tbody > tr > td:nth-child(2)
+{
+  padding-left: 150px;
+  min-width: 300px;
+}
+.table > thead > tr > th:first-child
+{
+  min-height: 57px;
+}
 
 .table > tbody > tr.detail {
   display: none;
@@ -202,9 +164,10 @@ span.color-coded {
 .color-coded-red {
   background-color: red;
 }
-.color-coded-grey {
-  color: #E6E6E6;
-  background-color: #E6E6E6;
+.color-coded-grey,
+.table tbody > tr.detail > th:first-child {
+  color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
 .abi-header > div {
@@ -218,8 +181,9 @@ span.color-coded {
 .abi-header .btn-toolbar {
   float: right;
 }
-.leaderboard .btn-toolbar {
+.controls .btn-toolbar {
   width: 200px;
+  min-height: 40px;
   margin: 20px auto;
 }
 .btn-toolbar .btn-primary {
@@ -228,7 +192,7 @@ span.color-coded {
   border-color: black;
 }
 
-.leaderboard .btn-toolbar {
+.controls .btn-toolbar {
   display: none;
   margin-top: 10px:
 }
@@ -250,16 +214,10 @@ span.color-coded {
   .abi-header {
     margin-bottom: 25px;
   }
-  body {
-    margin: 0;
-  }
 }
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
-  body {
-    margin: 0;
-  }
   .abi-header {
     margin-bottom: 25px;
   }
@@ -268,17 +226,27 @@ span.color-coded {
 /* Portrait phones and smaller */
 /*@media (max-width: 480px) {*/
 @media (max-width: 510px) {
-  body {
-    margin: 0;
-  }
   .abi-header {
-    margin-bottom: 5px;
+  }
+  .master-container.header
+  {
+    padding: 5px 0 5px 0;
   }
   .nav-tabs li {
     display: block;
     width: 100%;
   }
-  .leaderboard .btn-toolbar {
+  .nav-tabs {
+    min-height: 125px;
+  }
+  .master-container.controls {
+    padding-top: 50px;
+  }
+  .master-container.leaderboard
+  {
+    padding-top: 255px;
+  }
+  .controls .btn-toolbar {
     display: block;
   }
   .abi-header .btn-toolbar {
