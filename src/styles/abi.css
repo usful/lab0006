@@ -7,13 +7,13 @@
 
 .master-container {
   width: 100%;
-  z-index: 200;
 }
 .master-container.header
 {
   position: fixed;
   padding: 20px 0 40px 0;
   background-color: white;
+  z-index: 300;
 }
 .master-container.header .container
 {
@@ -23,6 +23,7 @@
 .master-container.controls {
   padding-top: 100px;
   position: fixed;
+  z-index: 200;
 }
 .master-container.controls .container
 {
@@ -32,6 +33,7 @@
 .master-container.leaderboard
 {
   padding-top: 145px;
+  z-index: 100;
 }
 .leaderboard .table > thead > tr  {
   min-height: 55px;
