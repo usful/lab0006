@@ -1,0 +1,311 @@
+.container {
+  font-size: 12px;
+}
+.btn {
+  font-size: 12px;
+}
+
+.master-container {
+  width: 100%;
+  z-index: 200;
+}
+.master-container.header
+{
+  position: fixed;
+  padding: 20px 0 40px 0;
+  height: 40px;
+  background-color: white;
+}
+.master-container.leaderboard {
+  padding-top: 100px;
+}
+#controlled-tab .nav-tabs
+{
+}
+.master-container .container {
+  margin: 0 auto;
+}
+.master-container.leaderboard {
+}
+.master-container.leaderboard .nav-tabs {
+}
+
+.controlled-tab {
+}
+
+.tab-content {
+}
+.tab-content .table > thead {
+  xmax-height: 55px;
+}
+.tab-content .table > tbody {
+  xpadding-top: 55px;
+}
+
+img.logo {
+  width: 150px;
+}
+.abi-header h1 {
+  display: none;
+}
+
+.nav-tabs {
+  border: 0;
+  background-color: #E6E6E6;
+}
+.nav-tabs>li>a {
+  margin: 0;
+  font-size: 14px;
+}
+.nav-tabs li {
+  border: 1px solid grey;
+  width: 33.33%;
+  text-align: center;
+  font-weight: bold;
+  font-color: black;
+}
+.nav-tabs li.active {
+  border-bottom: 0;
+}
+
+.table > thead > tr,
+.table > tbody > tr,
+{
+  width: 1170px;
+}
+
+.tab-content >
+
+.table > thead 
+{
+}
+
+.table > thead > tr > th
+{
+  font-size: 14px;
+}
+.table > thead > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > th,
+.table > tbody > tr > td
+{
+  min-width: 80px;
+}
+/*
+.table {
+  min-width: 1000px;
+}
+.table > thead > tr.col-6 > td,
+.table > thead > tr.col-6 > th
+{
+}
+.table > thead > tr.col-7 > td,
+.table > thead > tr.col-7 > th
+{
+  width: 12%;
+
+}
+.table > thead > tr.col-8 > td,
+.table > thead > tr.col-8 > th
+{
+  width: 10.5%;
+}
+.table {
+  z-index: -5;
+}
+.table tr > th,
+.table tr > th
+{
+}
+.table tr > th:first-child
+{
+  width: 15%;
+}
+.table > thead > tr > td:nth-child(2)
+{
+}
+.table > thead > tr > th {
+  height: 40px !important;
+}
+.table tr > :nth-child(2)
+{
+  padding-left: 150px !important;
+}
+.table tr > :first-child {
+  position: absolute;
+  padding-left: 2px;
+  display: table-cell;
+  z-index: 1;
+  width: 150px;
+}
+*/
+
+.table > tbody > tr.detail {
+  display: none;
+}
+.table > tbody > tr.detail.active {
+  display: table-row;
+}
+.table>tbody>tr>th,
+.table>tbody>tr>td
+{
+  padding: 8px 0;
+}
+.table .detail td {
+  text-align: left;
+}
+.table .detail span:first-child {
+  font-weight: bold;
+  display: inline-block;
+  min-width: 100px;
+}
+.table .detail ul {
+  padding: 0;
+  margin: 0;
+}
+.table .detail li {
+  list-style: none;
+  background: none;
+}
+.table .detail li.color-coded-green {
+  color: green;
+}
+.table .detail li.color-coded-yellow {
+  color: gold;
+}
+.table .detail li.color-coded-red {
+  color: red;
+}
+
+.table>tbody>tr>td,
+thead th {
+  vertical-align: middle;
+  text-align: center;
+}
+.table th:first-child {
+  text-align: left;
+}
+
+span.color-coded {
+  padding: 5px;
+  width: 100%;
+}
+span.color-coded {
+  display: inline-block;
+}
+.color-coded-green {
+  background-color: green;
+}
+.color-coded-yellow {
+  background-color: gold;
+}
+.color-coded-red {
+  background-color: red;
+}
+.color-coded-grey {
+  color: #E6E6E6;
+  background-color: #E6E6E6;
+}
+
+.abi-header > div {
+  padding: 0;
+}
+.abi-header h1 {
+  color: gold;
+  margin: 0;
+  font-size: 26px;
+}
+.abi-header .btn-toolbar {
+  float: right;
+}
+.leaderboard .btn-toolbar {
+  width: 200px;
+  margin: 20px auto;
+}
+.btn-toolbar .btn-primary {
+  color: black;
+  background-color: gold;
+  border-color: black;
+}
+
+.leaderboard .btn-toolbar {
+  display: none;
+  margin-top: 10px:
+}
+.abi-header .btn-toolbar {
+  display: block;
+}
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  .abi-header {
+    margin-bottom: 25px;
+  }
+  body {
+    margin: 0;
+  }
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  body {
+    margin: 0;
+  }
+  .abi-header {
+    margin-bottom: 25px;
+  }
+}
+
+/* Portrait phones and smaller */
+/*@media (max-width: 480px) {*/
+@media (max-width: 510px) {
+  body {
+    margin: 0;
+  }
+  .abi-header {
+    margin-bottom: 5px;
+  }
+  .nav-tabs li {
+    display: block;
+    width: 100%;
+  }
+  .leaderboard .btn-toolbar {
+    display: block;
+  }
+  .abi-header .btn-toolbar {
+    display: none;
+  }
+}
+
+@media print {
+  .btn-toolbar {
+    display: none !important;
+  }
+  .nav-tabs li {
+    display: block;
+    width: 100%;
+  }
+  .nav-tabs li {
+    display: none;
+  }
+  .nav-tabs li.active {
+    display: block;
+    border: 0;
+  }
+  .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus
+  {
+    border: 0;
+  }
+  .color-coded-grey {
+    color: white; /* so it disappears into the background */
+  }
+}
