@@ -2,7 +2,7 @@ import React from "react";
 import _ from "lodash";
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import {Tabs, Tab} from 'react-bootstrap';
-import {TableTotalSummary, TableBusinessSimulation, TableMarketingAssessment} from './Tables';
+import CandidateTable from './Tables';
 
 // URL for downloading the spreadsheet
 const sheetURL = '';
@@ -287,13 +287,7 @@ export default class Layout extends React.Component {
     });
 
     // Default sort
-    data = _.sortBy(data, [function (c) {
-      const i = _.indexOf(colorCodes, c['business simulation'].averageScore);
-      return (i >= 0) ? i : colorCodes.length - 1;
-    }, function (c) {
-      return c.name.split(' ').pop();
-    }]);
-    this.setState({data}); 
+    this.setState({data});
   }
 
   handleTabSelect(activeKey) {
@@ -311,41 +305,43 @@ export default class Layout extends React.Component {
 
   render() {
     return (
-      <div>
-      <div className="master-container header">
-        <div className="container">
-          <div className={"row abi-header"}>
-            <div className="col-sm-6 col-xs-7">
-              <h1>ABI Day | 2016</h1>
-              <img class="logo" title="ABI Day Logo" src="./images/abi-day-2016-logo.png" />
+        <div>
+          <div className="master-container header">
+            <div className="container">
+              <div className={"row abi-header"}>
+                <div className="col-sm-6 col-xs-7">
+                  <h1>ABI Day | 2016</h1>
+                  <img class="logo" title="ABI Day Logo" src="./images/abi-day-2016-logo.png" />
+                </div>
+                <div className="col-sm-6 col-xs-5">
+                  {this.toolbar('md-display')}
+                </div>
+              </div>
             </div>
-            <div className="col-sm-6 col-xs-5">
-              {this.toolbar('md-display')}
+          </div>
+          <div className="master-container controls">
+            <div className="container">
+              <div className={"row controls"}>
+                <Tabs activeKey={this.state.activeKey} onSelect={this.handleTabSelect.bind(this)} id="controlled-tab">
+                  <Tab eventKey={1} title="TOTAL SUMMARY">
+                  </Tab>
+                  <Tab eventKey={2} title="BUSINESS SIMULATION">
+                  </Tab>
+                  <Tab eventKey={3} title="MARKETING ASSESSMENT">
+                  </Tab>
+                </Tabs>
+                {this.toolbar('sm-display')}
+              </div>
+            </div>
+          </div>
+          <div className="master-container leaderboard">
+            <div className="container">
+              <div className={"row leaderboard"}>
+                <CandidateTable activeTable={this.state.activeKey} data={this.state.data} staticScores={this.state.staticScores} colorCodes={colorCodes} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="master-container leaderboard">
-        <div className="container">
-          <div className={"row leaderboard"}>
-            <Tabs activeKey={this.state.activeKey} onSelect={this.handleTabSelect.bind(this)} id="controlled-tab">
-              <Tab eventKey={1} title="TOTAL SUMMARY">
-                {this.toolbar('sm-display')}
-                <TableTotalSummary id="table-1" data={this.state.data} staticScores={this.state.staticScores} />
-              </Tab>
-              <Tab eventKey={2} title="BUSINESS SIMULATION">
-                {this.toolbar('sm-display')}
-                <TableBusinessSimulation id="table-2" data={this.state.data} staticScores={this.state.staticScores}  />
-              </Tab>
-              <Tab eventKey={3} title="MARKETING ASSESSMENT">
-                {this.toolbar('sm-display')}
-                <TableMarketingAssessment id="table-3" data={this.state.data} staticScores={this.state.staticScores} />
-              </Tab>
-            </Tabs>
-          </div>
-        </div>
-      </div>
-      </div>
-      );
+        );
   }
 }

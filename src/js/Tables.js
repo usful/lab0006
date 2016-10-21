@@ -26,7 +26,8 @@ function commentList (alist, cc) {
   }
 }
 
-export class MyTable extends React.Component {
+
+class MyTable extends React.Component {
   constructor (th) {
     super();
     this.th = th;
@@ -45,11 +46,12 @@ export class MyTable extends React.Component {
   }
 
   tbody () {
-    var that = this;
+    const that = this;
+    const data = this.tableSort(this.props.data);
     return (
       <tbody>
       {
-        _.map(that.props.data, function (a, i) {
+        _.map(data, function (a, i) {
           return that.row(a, i, (a.name in that.props.staticScores) ? that.props.staticScores[a.name] : a);
         })
       }
@@ -59,9 +61,12 @@ export class MyTable extends React.Component {
 
   tdColorCount (assessor, i, color) {
     const count = assessor[color].count;
+    const style = {
+      'cursor': 'pointer'
+    }
     if (count > 0) {
       return (
-        <td onClick={this.handleClick.bind(this, i, color)}>{count}</td>
+        <td style={style} onClick={this.handleClick.bind(this, i, color)}>{count}</td>
       );
     }
     else {
@@ -99,6 +104,16 @@ export class TableTotalSummary extends MyTable {
     );
   }
 
+  tableSort (data) {
+    const that = this;
+    return _.sortBy(data, [function (c) {
+      const i = _.indexOf(that.props.colorCodes, c.finalScore);
+      return (i >= 0) ? i : that.props.colorCodes.length - 1;
+    }, function (c) {
+      return c.name.split(' ').pop();
+    }]);
+  }
+
   row (a, i, sd) {
     // If static data has an entry for this candidate, use the static data; otherwise,
     // use the data returned by the REST call. This allows removing the static data
@@ -131,6 +146,16 @@ export class TableBusinessSimulation extends MyTable {
       <th><span class="color-coded color-coded-red" >RED</span></th>
       </tr>
     );
+  }
+
+  tableSort (data) {
+    const that = this;
+    return _.sortBy(data, [function (c) {
+      const i = _.indexOf(that.props.colorCodes, c['business simulation'].averageScore);
+      return (i >= 0) ? i : that.props.colorCodes.length - 1;
+    }, function (c) {
+      return c.name.split(' ').pop();
+    }]);
   }
 
   row (a, i) {
@@ -174,6 +199,16 @@ export class TableMarketingAssessment extends MyTable {
     );
   }
 
+  tableSort (data) {
+    const that = this;
+    return _.sortBy(data, [function (c) {
+      const i = _.indexOf(that.props.colorCodes, c['knack presentation'].averageScore);
+      return (i >= 0) ? i : that.props.colorCodes.length - 1;
+    }, function (c) {
+      return c.name.split(' ').pop();
+    }]);
+  }
+
   row (a, i) {
     const assessor = a[MARKETING_ASSESSMENT].assessor;
     return (
@@ -197,5 +232,25 @@ export class TableMarketingAssessment extends MyTable {
         </tr>
       ]
     );
+  }
+}
+
+export default class CandidateTable extends React.Component {
+
+  render () {
+    switch (this.props.activeTable) {
+      case 1:
+        return (
+          <TableTotalSummary id="table-1" {...this.props} />
+        );
+      case 2:
+        return (
+          <TableBusinessSimulation id="table-2" {...this.props} />
+        );
+      case 3:
+        return (
+          <TableMarketingAssessment id="table-3" {...this.props} />
+        );
+    }
   }
 }
