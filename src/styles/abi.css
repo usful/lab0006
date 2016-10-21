@@ -2,7 +2,7 @@
   font-size: 12px;
 }
 .btn {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .master-container {
@@ -11,13 +11,13 @@
 .master-container.header
 {
   position: fixed;
-  padding: 20px 0 40px 0;
+  padding: 20px 0 38px 0;
   background-color: white;
   z-index: 300;
 }
 .master-container.header .container
 {
-  min-height: 40px;
+  min-height: 42px;
   height: 40px;
 }
 .master-container.controls {
@@ -32,11 +32,12 @@
 }
 .master-container.leaderboard
 {
-  padding-top: 145px;
+  padding-top: 140px;
   z-index: 100;
 }
 .leaderboard .table > thead > tr  {
   min-height: 55px;
+  height: 55px;
   background-color: white;
 }
 
@@ -63,7 +64,7 @@ img.logo {
   width: 33.33%;
   text-align: center;
   font-weight: bold;
-  font-color: black;
+  color: black;
 }
 .nav-tabs li.active {
   border-bottom: 0;
@@ -73,14 +74,16 @@ img.logo {
 {
   font-size: 14px;
 }
-.table {
+.table > thead > tr,
+.table > tbody > tr
+{
 }
 .table > thead > tr > th,
 .table > thead > tr > td,
 .table > tbody > tr > th,
 .table > tbody > tr > td
 {
-  min-width: 150px;
+  min-width: 160px;
   min-height: 44px;
 }
 .table > thead > tr > th:first-child,
@@ -96,8 +99,8 @@ img.logo {
 .table > tbody > tr > th:nth-child(2),
 .table > tbody > tr > td:nth-child(2)
 {
-  padding-left: 150px;
-  min-width: 300px;
+  padding-left: 160px;
+  min-width: 320px;
 }
 .table > thead > tr > th:first-child
 {
@@ -146,6 +149,10 @@ thead th {
   vertical-align: middle;
   text-align: center;
 }
+.table>thead>tr>th
+{
+  vertical-align: top;
+}
 .table th:first-child {
   text-align: left;
 }
@@ -184,7 +191,7 @@ span.color-coded {
   float: right;
 }
 .controls .btn-toolbar {
-  width: 200px;
+  width: 240px;
   min-height: 40px;
   margin: 20px auto;
 }
@@ -196,7 +203,6 @@ span.color-coded {
 
 .controls .btn-toolbar {
   display: none;
-  margin-top: 10px:
 }
 .abi-header .btn-toolbar {
   display: block;
@@ -242,17 +248,23 @@ span.color-coded {
     min-height: 125px;
   }
   .master-container.controls {
-    padding-top: 50px;
+    padding-top: 52px;
   }
   .master-container.leaderboard
   {
     padding-top: 255px;
   }
-  .controls .btn-toolbar {
-    display: block;
-  }
   .abi-header .btn-toolbar {
     display: none;
+  }
+  .master-container.controls .btn-toolbar {
+    display: block;
+  }
+  .nav-tabs>li>a:hover {
+    border-color: #e6e6e6dd;
+  }
+  .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    border: 1px solid grey;
   }
 }
 

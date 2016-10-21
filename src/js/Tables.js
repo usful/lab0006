@@ -45,7 +45,6 @@ class MyTable extends React.Component {
 
   tbody () {
     const that = this;
-    debugger;
     const data = this.tableSort(this.props.data);
     return (
       <tbody>
@@ -253,14 +252,3 @@ export default class CandidateTable extends React.Component {
     }
   }
 }
-
-/*
-  sort (data) {
-    const data = _.sortBy(data, [function (c) {
-      const i = _.indexOf(colorCodes, c['business simulation'].averageScore);
-      return (i >= 0) ? i : colorCodes.length - 1;
-    }, function (c) {
-      return c.name.split(' ').pop();
-    }]);
-  }
-*/

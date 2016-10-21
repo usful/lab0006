@@ -285,7 +285,7 @@ export default class Layout extends React.Component {
     });
 
     // Default sort
-    this.setState({data}); 
+    this.setState({data});
   }
 
   handleTabSelect(activeKey) {
