@@ -59,9 +59,12 @@ class MyTable extends React.Component {
 
   tdColorCount (assessor, i, color) {
     const count = assessor[color].count;
+    const style = {
+      'cursor': 'pointer'
+    }
     if (count > 0) {
       return (
-        <td onClick={this.handleClick.bind(this, i, color)}>{count}</td>
+        <td style={style} onClick={this.handleClick.bind(this, i, color)}>{count}</td>
       );
     }
     else {
@@ -238,17 +241,14 @@ export default class CandidateTable extends React.Component {
         return (
           <TableTotalSummary id="table-1" {...this.props} />
         );
-        break;
       case 2:
         return (
           <TableBusinessSimulation id="table-2" {...this.props} />
         );
-        break;
       case 3:
         return (
           <TableMarketingAssessment id="table-3" {...this.props} />
         );
-        break;
     }
   }
 }
