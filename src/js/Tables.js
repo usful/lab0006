@@ -2,6 +2,8 @@ import React from "react";
 import {Table} from 'react-bootstrap';
 import _ from 'lodash';
 
+const MARKETING_ASSESSMENT = 'marketing assessment';
+
 function tdColorCoded (cc) {
   return (
     <td ><span class={'color-coded color-coded-' + cc.toLowerCase()} >{cc.toUpperCase()}</span></td>
@@ -88,7 +90,7 @@ export class TableTotalSummary extends MyTable {
       <tr class="col-7">
       <th>NAME</th>
       <th>BUSINESS SIMULATION<br />FINAL SCORE</th>
-      <th>KNACK PRESENTATION<br />FINAL SCORE</th>
+      <th>MARKETING ASSESSMENT<br />FINAL SCORE</th>
       <th>MARKETING PROFILE</th>
       <th>CULTURAL FIT<br />ASSESSMENT SCORE</th>
       <th>LOGISTICAL<br />REASONING SCORE</th>
@@ -173,18 +175,18 @@ export class TableMarketingAssessment extends MyTable {
   }
 
   row (a, i) {
-    const assessor = a['knack presentation'].assessor;
+    const assessor = a[MARKETING_ASSESSMENT].assessor;
     return (
       [
         <tr>
         <th><span class="color-code">{a.name}</span></th>
-        {tdColorCoded(a['knack presentation'].averageScore)}
-        {tdColorCoded(a['knack presentation'].finalScore)}
+        {tdColorCoded(a[MARKETING_ASSESSMENT].averageScore)}
+        {tdColorCoded(a[MARKETING_ASSESSMENT].finalScore)}
         {this.tdColorCount(assessor, i, 'green')}
         {this.tdColorCount(assessor, i, 'yellow')}
         {this.tdColorCount(assessor, i, 'red')}
-        <td>{a['knack presentation'].assessor.marketingProfileYes}</td>
-        <td>{a['knack presentation'].assessor.marketingProfileNo}</td>
+        <td>{a[MARKETING_ASSESSMENT].assessor.marketingProfileYes}</td>
+        <td>{a[MARKETING_ASSESSMENT].assessor.marketingProfileNo}</td>
         </tr>
         ,
         <tr class={ ['detail', this.state.active.row === i ? 'active' : ''].join(' ') } >

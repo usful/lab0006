@@ -6,6 +6,8 @@ import {TableTotalSummary, TableBusinessSimulation, TableMarketingAssessment} fr
 
 // URL for downloading the spreadsheet
 const sheetURL = '';
+const BUSINESS_SIMULATION = 'business simulation';
+const MARKETING_ASSESSMENT = 'marketing assessment';
 
 // color codes in ascending order
 const colorCodes = ['green', 'yellow', 'red', 'grey'];
@@ -155,7 +157,7 @@ export default class Layout extends React.Component {
             marketingProfileNo: 0,
           },
         },
-        'knack presentation': { // Tab #3
+        'marketing assessment': { // Tab #3
           averageScore: 'grey',
           finalScore: 'grey',
           admin: {
@@ -244,7 +246,7 @@ export default class Layout extends React.Component {
           data[i][r.question1.toLowerCase()][r.type].marketingProfileNo++;
 
         // average/final score based on highest count
-        _.each(['business simulation','knack presentation'], function (s) {
+        _.each(['business simulation',MARKETING_ASSESSMENT], function (s) {
           _.each([ {type: 'assessor', key: 'averageScore'}, {type: 'admin', key: 'finalScore'}, ], function (k) {
             let max = 0;
             // businessSimulationFinalScoredetermine high count
@@ -267,7 +269,7 @@ export default class Layout extends React.Component {
 
       // Summary Data
       data[i].businessSimulationFinalScore = data[i]['business simulation'].finalScore;
-      data[i].knackPresentationFinalScore = data[i]['knack presentation'].finalScore;
+      data[i].knackPresentationFinalScore = data[i][MARKETING_ASSESSMENT].finalScore;
 
       data[i].finalScore = (function (bs, ks) {
         return (bs === ks) ? bs : 'GREY';
@@ -279,8 +281,8 @@ export default class Layout extends React.Component {
       data[i].marketingProfile = (function (ap, kp) {
         return (ap > kp) ? 'YES' : 'NO';
       })(
-        data[i]['knack presentation'].assessor.marketingProfileYes,
-        data[i]['knack presentation'].assessor.marketingProfileNo
+        data[i][MARKETING_ASSESSMENT].assessor.marketingProfileYes,
+        data[i][MARKETING_ASSESSMENT].assessor.marketingProfileNo
       )
     });
 
