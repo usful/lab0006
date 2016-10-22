@@ -1,6 +1,20 @@
-const debug = process.env.NODE_ENV !== "production";
 const webpack = require('webpack');
 const path = require('path');
+
+// Use the environment variable to control transpiling:
+// For source maps for easy debug...
+//
+// $ NODE_ENV="dev" webpack
+// $ ls ./dev
+// abi.min.js
+//
+// To transpile for production (minified)...
+// 
+// $ webpack
+// $ ls ./prod
+// abi.min.js
+//
+const runEnvironment = process.env.NODE_ENV || 'prod';
 
 const paths = {
     app: path.join(__dirname, 'app'),
@@ -9,7 +23,7 @@ const paths = {
 
 module.exports = {
     context: path.join(__dirname, "src"),
-    devtool: debug ? "inline-sourcemap" : null,
+    devtool: runEnvironment !== 'prod' ? "inline-sourcemap" : null,
     entry: "./js/client.js",
     module: {
         loaders: [
@@ -25,10 +39,10 @@ module.exports = {
         ]
     },
     output: {
-        path: path.join(__dirname, debug ? 'dev' : 'prod'),
+        path: path.join(__dirname, runEnvironment),
         filename: "abi.min.js"
     },
-    plugins: debug ? [] : [
+    plugins: runEnvironment !== 'prod' ? [] : [
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
