@@ -1,3 +1,6 @@
+.table-responsive {
+  margin: 0;
+}
 .container {
   font-size: 12px;
 }
@@ -8,14 +11,14 @@
 .master-container {
   width: 100%;
 }
-.master-container.header
+.master-container.abi-header
 {
   position: fixed;
   padding: 20px 0 38px 0;
   background-color: white;
   z-index: 300;
 }
-.master-container.header .container
+.master-container.abi-header .container
 {
   min-height: 42px;
   height: 40px;
@@ -35,9 +38,15 @@
   padding-top: 140px;
   z-index: 100;
 }
+.leaderboard .table {
+  display: none;
+}
+.leaderboard .table.active {
+  display: block;
+}
 .leaderboard .table > thead > tr  {
-  min-height: 55px;
-  height: 55px;
+  min-height: 57px;
+  height: 57px;
   background-color: white;
 }
 
@@ -104,7 +113,7 @@ img.logo {
 }
 .table > thead > tr > th:first-child
 {
-  min-height: 57px;
+  min-height: 58px;
 }
 
 .table > tbody > tr.detail {
@@ -208,35 +217,11 @@ span.color-coded {
   display: block;
 }
 
-/* Large desktops and laptops */
-@media (min-width: 1200px) {
-
-}
-
-/* Landscape tablets and medium desktops */
-@media (min-width: 992px) and (max-width: 1199px) {
-}
-
-/* Portrait tablets and small desktops */
-@media (min-width: 768px) and (max-width: 991px) {
-  .abi-header {
-    margin-bottom: 25px;
-  }
-}
-
-/* Landscape phones and portrait tablets */
-@media (max-width: 767px) {
-  .abi-header {
-    margin-bottom: 25px;
-  }
-}
-
-/* Portrait phones and smaller */
-/*@media (max-width: 480px) {*/
-@media (max-width: 510px) {
+/* Eliminate transition problems between md/sm */
+@media (max-width: 600px) {
   .abi-header {
   }
-  .master-container.header
+  .master-container.abi-header
   {
     padding: 5px 0 5px 0;
   }
@@ -289,5 +274,19 @@ span.color-coded {
   }
   .color-coded-grey {
     color: white; /* so it disappears into the background */
+  }
+  .table > thead > tr > th:first-child,
+  .table > thead > tr > td:first-child,
+  .table > tbody > tr > th:first-child,
+  .table > tbody > tr > td:first-child
+  {
+    position: table-cell;
+  }
+  .table > thead > tr > th,
+  .table > thead > tr > td,
+  .table > tbody > tr > th,
+  .table > tbody > tr > td
+  {
+    min-width: 0;
   }
 }
