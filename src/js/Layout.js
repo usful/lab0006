@@ -225,7 +225,7 @@ export default class Layout extends React.Component {
           question1: '',
           question2: '',
           question3: '',
-          question4: ['yes', 'no'][i % 2], // missing for now...
+          question4: '',
         }, r);
 
         // color code counts
