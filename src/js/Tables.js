@@ -237,7 +237,6 @@ export class TableMarketingAssessment extends MyTable {
 
 export default class CandidateTable extends React.Component {
   render () {
-  debugger;
     console.log('Rendering Leaderboards');
     return (
       <div className="leaderboard">
