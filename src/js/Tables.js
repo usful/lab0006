@@ -202,7 +202,7 @@ export class TableMarketingAssessment extends MyTable {
   tableSort (data) {
     const that = this;
     return _.sortBy(data, [function (c) {
-      const i = _.indexOf(that.props.colorCodes, c['knack presentation'].averageScore);
+      const i = _.indexOf(that.props.colorCodes, c[MARKETING_ASSESSMENT].averageScore);
       return (i >= 0) ? i : that.props.colorCodes.length - 1;
     }, function (c) {
       return c.name.split(' ').pop();
