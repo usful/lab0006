@@ -83,7 +83,7 @@ class MyTable extends React.Component {
     return (
       <Table className={this.props.className} responsive>
         <thead>
-          {this.th}
+        {this.th}
         </thead>
         {this.tbody()}
       </Table>
@@ -225,8 +225,7 @@ export class TableMarketingAssessment extends MyTable {
           {this.tdColorCount(assessor, i, 'red')}
           <td>{a[MARKETING_ASSESSMENT].assessor.marketingProfileYes}</td>
           <td>{a[MARKETING_ASSESSMENT].assessor.marketingProfileNo}</td>
-        </tr>
-        ,
+        </tr>,
         <tr key={i + 'detail'} class={ ['detail', this.state.active.row === i ? 'active' : ''].join(' ') }>
           <th></th>
           <td></td>
@@ -239,7 +238,7 @@ export class TableMarketingAssessment extends MyTable {
 }
 
 export default class CandidateTable extends React.Component {
-  render () {
+  render() {
     console.log('Rendering Leaderboards');
     return (
       <div className="leaderboard">
