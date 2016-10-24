@@ -81,7 +81,7 @@ class MyTable extends React.Component {
 
   render() {
     return (
-      <Table responsive>
+      <Table className={this.props.className} responsive>
         <thead>
           {this.th}
         </thead>
@@ -239,21 +239,14 @@ export class TableMarketingAssessment extends MyTable {
 }
 
 export default class CandidateTable extends React.Component {
-
-  render() {
-    switch (this.props.activeTable) {
-      case 1:
-        return (
-          <TableTotalSummary id="table-1" {...this.props} />
-        );
-      case 2:
-        return (
-          <TableBusinessSimulation id="table-2" {...this.props} />
-        );
-      case 3:
-        return (
-          <TableMarketingAssessment id="table-3" {...this.props} />
-        );
-    }
+  render () {
+    console.log('Rendering Leaderboards');
+    return (
+      <div className="leaderboard">
+        <TableTotalSummary className={this.props.activeTable === 1 ? 'active' : ''} {...this.props} />
+        <TableBusinessSimulation className={this.props.activeTable === 2 ? 'active' : ''} {...this.props} />
+        <TableMarketingAssessment className={this.props.activeTable === 3 ? 'active' : ''} {...this.props} />
+      </div>
+    );
   }
 }

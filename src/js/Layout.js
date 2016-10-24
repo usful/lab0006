@@ -225,7 +225,7 @@ export default class Layout extends React.Component {
           question1: '',
           question2: '',
           question3: '',
-          question4: ['yes', 'no'][i % 2], // missing for now...
+          question4: '',
         }, r);
 
         // color code counts
@@ -306,9 +306,9 @@ export default class Layout extends React.Component {
   render() {
     return (
         <div>
-          <div className="master-container header">
+          <div className="master-container abi-header">
             <div className="container">
-              <div className={"row abi-header"}>
+              <div className={"row"}>
                 <div className="col-sm-6 col-xs-7">
                   <h1>ABI Day | 2016</h1>
                   <img class="logo" title="ABI Day Logo" src="./images/abi-day-2016-logo.png" />
@@ -321,14 +321,11 @@ export default class Layout extends React.Component {
           </div>
           <div className="master-container controls">
             <div className="container">
-              <div className={"row controls"}>
+              <div className={"row"}>
                 <Tabs activeKey={this.state.activeKey} onSelect={this.handleTabSelect.bind(this)} id="controlled-tab">
-                  <Tab eventKey={1} title="TOTAL SUMMARY">
-                  </Tab>
-                  <Tab eventKey={2} title="BUSINESS SIMULATION">
-                  </Tab>
-                  <Tab eventKey={3} title="MARKETING ASSESSMENT">
-                  </Tab>
+                  <Tab eventKey={1} title="TOTAL SUMMARY" />
+                  <Tab eventKey={2} title="BUSINESS SIMULATION" />
+                  <Tab eventKey={3} title="MARKETING ASSESSMENT" />
                 </Tabs>
                 {this.toolbar('sm-display')}
               </div>
@@ -336,7 +333,7 @@ export default class Layout extends React.Component {
           </div>
           <div className="master-container leaderboard">
             <div className="container">
-              <div className={"row leaderboard"}>
+              <div className={"row"}>
                 <CandidateTable activeTable={this.state.activeKey} data={this.state.data} staticScores={this.state.staticScores} colorCodes={colorCodes} />
               </div>
             </div>
