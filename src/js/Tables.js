@@ -4,23 +4,23 @@ import _ from 'lodash';
 
 const MARKETING_ASSESSMENT = 'marketing assessment';
 
-function tdColorCoded (cc) {
+function tdColorCoded(cc) {
   return (
-    <td ><span class={'color-coded color-coded-' + cc.toLowerCase()} >{cc.toUpperCase()}</span></td>
+    <td ><span class={'color-coded color-coded-' + cc.toLowerCase()}>{cc.toUpperCase()}</span></td>
   );
 }
 
-function commentList (alist, cc) {
+function commentList(alist, cc) {
   if (cc) {
     return (
       <ul>
-      {
-        _.map(alist[cc].assessors, function (a) {
-          return(
-            <li class={'color-coded color-coded-' + cc} ><span>{a.name}:&nbsp;</span><span>{a.comment}</span></li>
-          );
-        })
-      }
+        {
+          _.map(alist[cc].assessors, function (a) {
+            return (
+              <li class={'color-coded color-coded-' + cc}><span>{a.name}:&nbsp;</span><span>{a.comment}</span></li>
+            );
+          })
+        }
       </ul>
     );
   }
@@ -28,9 +28,11 @@ function commentList (alist, cc) {
 
 
 class MyTable extends React.Component {
-  constructor (th) {
+  constructor(th) {
     super();
+
     this.th = th;
+
     this.state = {
       active: {
         row: null,
@@ -41,11 +43,11 @@ class MyTable extends React.Component {
 
   handleClick(row, color) {
     row = (row === this.state.active.row && color === this.state.active.color) ? null : row;
-    const active = { row, color };
+    const active = {row, color};
     this.setState({active});
   }
 
-  tbody () {
+  tbody() {
     const that = this;
     const data = this.tableSort(this.props.data);
     return (
@@ -59,11 +61,12 @@ class MyTable extends React.Component {
     );
   }
 
-  tdColorCount (assessor, i, color) {
+  tdColorCount(assessor, i, color) {
     const count = assessor[color].count;
     const style = {
       'cursor': 'pointer'
-    }
+    };
+
     if (count > 0) {
       return (
         <td style={style} onClick={this.handleClick.bind(this, i, color)}>{count}</td>
@@ -76,7 +79,7 @@ class MyTable extends React.Component {
     }
   }
 
-  render () {
+  render() {
     return (
       <Table responsive>
         <thead>
@@ -90,21 +93,21 @@ class MyTable extends React.Component {
 
 // Tab #1
 export class TableTotalSummary extends MyTable {
-  constructor () {
+  constructor() {
     super(
       <tr class="col-7">
-      <th>NAME</th>
-      <th>BUSINESS SIMULATION<br />FINAL SCORE</th>
-      <th>MARKETING ASSESSMENT<br />FINAL SCORE</th>
-      <th>MARKETING PROFILE</th>
-      <th>CULTURAL FIT<br />ASSESSMENT SCORE</th>
-      <th>LOGISTICAL<br />REASONING SCORE</th>
-      <th>FINAL SCORE</th>
+        <th>NAME</th>
+        <th>BUSINESS SIMULATION<br />FINAL SCORE</th>
+        <th>MARKETING ASSESSMENT<br />FINAL SCORE</th>
+        <th>MARKETING PROFILE</th>
+        <th>CULTURAL FIT<br />ASSESSMENT SCORE</th>
+        <th>LOGISTICAL<br />REASONING SCORE</th>
+        <th>FINAL SCORE</th>
       </tr>
     );
   }
 
-  tableSort (data) {
+  tableSort(data) {
     const that = this;
     return _.sortBy(data, [function (c) {
       const i = _.indexOf(that.props.colorCodes, c.finalScore);
@@ -114,20 +117,20 @@ export class TableTotalSummary extends MyTable {
     }]);
   }
 
-  row (a, i, sd) {
+  row(a, i, sd) {
     // If static data has an entry for this candidate, use the static data; otherwise,
     // use the data returned by the REST call. This allows removing the static data
     // at some future date and the server side code can simply add the data to the
     // REST payload.
     return (
-      <tr>
-      <th><span class="color-coded">{a.name}</span></th>
-      {tdColorCoded(a.businessSimulationFinalScore)}
-      {tdColorCoded(a.knackPresentationFinalScore)}
-      <td>{a.marketingProfile}</td>
-      {tdColorCoded(sd.culturalFitAssessmentScore)}
-      {tdColorCoded(sd.logisticalReasoningScore)}
-      {tdColorCoded(a.finalScore)}
+      <tr key={i}>
+        <th><span class="color-coded">{a.name}</span></th>
+        {tdColorCoded(a.businessSimulationFinalScore)}
+        {tdColorCoded(a.knackPresentationFinalScore)}
+        <td>{a.marketingProfile}</td>
+        {tdColorCoded(sd.culturalFitAssessmentScore)}
+        {tdColorCoded(sd.logisticalReasoningScore)}
+        {tdColorCoded(a.finalScore)}
       </tr>
     );
   }
@@ -135,20 +138,20 @@ export class TableTotalSummary extends MyTable {
 
 // Tab #2
 export class TableBusinessSimulation extends MyTable {
-  constructor () {
+  constructor() {
     super(
       <tr class="col-6">
-      <th>NAME</th>
-      <th>AVERAGE SCORE</th>
-      <th>FINAL SCORE</th>
-      <th><span class="color-coded color-coded-green" >GREEN</span></th>
-      <th><span class="color-coded color-coded-yellow" >YELLOW</span></th>
-      <th><span class="color-coded color-coded-red" >RED</span></th>
+        <th>NAME</th>
+        <th>AVERAGE SCORE</th>
+        <th>FINAL SCORE</th>
+        <th><span class="color-coded color-coded-green">GREEN</span></th>
+        <th><span class="color-coded color-coded-yellow">YELLOW</span></th>
+        <th><span class="color-coded color-coded-red">RED</span></th>
       </tr>
     );
   }
 
-  tableSort (data) {
+  tableSort(data) {
     const that = this;
     return _.sortBy(data, [function (c) {
       const i = _.indexOf(that.props.colorCodes, c['business simulation'].averageScore);
@@ -158,24 +161,24 @@ export class TableBusinessSimulation extends MyTable {
     }]);
   }
 
-  row (a, i) {
+  row(a, i) {
     const assessor = a['business simulation'].assessor;
     return (
       [
-        <tr>
-        <th><span class="color-function-coded">{a.name}</span></th>
-        {tdColorCoded(a['business simulation'].averageScore)}
-        {tdColorCoded(a['business simulation'].finalScore)}
-        {this.tdColorCount(assessor, i, 'green')}
-        {this.tdColorCount(assessor, i, 'yellow')}
-        {this.tdColorCount(assessor, i, 'red')}
+        <tr key={i}>
+          <th><span class="color-function-coded">{a.name}</span></th>
+          {tdColorCoded(a['business simulation'].averageScore)}
+          {tdColorCoded(a['business simulation'].finalScore)}
+          {this.tdColorCount(assessor, i, 'green')}
+          {this.tdColorCount(assessor, i, 'yellow')}
+          {this.tdColorCount(assessor, i, 'red')}
         </tr>
         ,
-        <tr class={ ['detail', this.state.active.row === i ? 'active' : ''].join(' ') } >
-        <th></th>
-        <td></td>
-        <td></td>
-        <td colSpan="3">{commentList(assessor, this.state.active.color)}</td>
+        <tr key={i + 'detail'} class={ ['detail', this.state.active.row === i ? 'active' : ''].join(' ') }>
+          <th></th>
+          <td></td>
+          <td></td>
+          <td colSpan="3">{commentList(assessor, this.state.active.color)}</td>
         </tr>
       ]
     );
@@ -184,51 +187,51 @@ export class TableBusinessSimulation extends MyTable {
 
 // Tab #3
 export class TableMarketingAssessment extends MyTable {
-  constructor () {
+  constructor() {
     super(
       <tr class="col-8">
-      <th>NAME</th>
-      <th>AVERAGE SCORE</th>
-      <th>FINAL SCORE</th>
-      <th><span class="color-coded color-coded-green" >GREEN</span></th>
-      <th><span class="color-coded color-coded-yellow" >YELLOW</span></th>
-      <th><span class="color-coded color-coded-red" >RED</span></th>
-      <th>MARKETING PROFILE YES</th>
-      <th>MARKETING PROFILE NO</th>
+        <th>NAME</th>
+        <th>AVERAGE SCORE</th>
+        <th>FINAL SCORE</th>
+        <th><span class="color-coded color-coded-green">GREEN</span></th>
+        <th><span class="color-coded color-coded-yellow">YELLOW</span></th>
+        <th><span class="color-coded color-coded-red">RED</span></th>
+        <th>MARKETING PROFILE YES</th>
+        <th>MARKETING PROFILE NO</th>
       </tr>
     );
   }
 
-  tableSort (data) {
+  tableSort(data) {
     const that = this;
     return _.sortBy(data, [function (c) {
-      const i = _.indexOf(that.props.colorCodes, c['knack presentation'].averageScore);
+      const i = _.indexOf(that.props.colorCodes, c[MARKETING_ASSESSMENT].averageScore);
       return (i >= 0) ? i : that.props.colorCodes.length - 1;
     }, function (c) {
       return c.name.split(' ').pop();
     }]);
   }
 
-  row (a, i) {
+  row(a, i) {
     const assessor = a[MARKETING_ASSESSMENT].assessor;
     return (
       [
-        <tr>
-        <th><span class="color-code">{a.name}</span></th>
-        {tdColorCoded(a[MARKETING_ASSESSMENT].averageScore)}
-        {tdColorCoded(a[MARKETING_ASSESSMENT].finalScore)}
-        {this.tdColorCount(assessor, i, 'green')}
-        {this.tdColorCount(assessor, i, 'yellow')}
-        {this.tdColorCount(assessor, i, 'red')}
-        <td>{a[MARKETING_ASSESSMENT].assessor.marketingProfileYes}</td>
-        <td>{a[MARKETING_ASSESSMENT].assessor.marketingProfileNo}</td>
+        <tr key={i}>
+          <th><span class="color-code">{a.name}</span></th>
+          {tdColorCoded(a[MARKETING_ASSESSMENT].averageScore)}
+          {tdColorCoded(a[MARKETING_ASSESSMENT].finalScore)}
+          {this.tdColorCount(assessor, i, 'green')}
+          {this.tdColorCount(assessor, i, 'yellow')}
+          {this.tdColorCount(assessor, i, 'red')}
+          <td>{a[MARKETING_ASSESSMENT].assessor.marketingProfileYes}</td>
+          <td>{a[MARKETING_ASSESSMENT].assessor.marketingProfileNo}</td>
         </tr>
         ,
-        <tr class={ ['detail', this.state.active.row === i ? 'active' : ''].join(' ') } >
-        <th></th>
-        <td></td>
-        <td></td>
-        <td colSpan="5">{commentList(assessor, this.state.active.color)}</td>
+        <tr key={i + 'detail'} class={ ['detail', this.state.active.row === i ? 'active' : ''].join(' ') }>
+          <th></th>
+          <td></td>
+          <td></td>
+          <td colSpan="5">{commentList(assessor, this.state.active.color)}</td>
         </tr>
       ]
     );
@@ -237,7 +240,7 @@ export class TableMarketingAssessment extends MyTable {
 
 export default class CandidateTable extends React.Component {
 
-  render () {
+  render() {
     switch (this.props.activeTable) {
       case 1:
         return (
