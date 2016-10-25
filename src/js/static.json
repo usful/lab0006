@@ -1,20 +1,4 @@
 {
-  "Sally Allan": {
-    "culturalFitAssessmentScore": "yellow",
-    "logisticalReasoningScore": "red"
-  },
-  "Molly Campi": {
-    "culturalFitAssessmentScore": "grey",
-    "logisticalReasoningScore": "yellow"
-  },
-  "Sheldon Tafolla": {
-    "culturalFitAssessmentScore": "yellow",
-    "logisticalReasoningScore": "grey"
-  },
-  "Sharlene Iversen": {
-    "culturalFitAssessmentScore": "green",
-    "logisticalReasoningScore": "yellow"
-  },
   "Aakash Ahuja" : {
     "name" : "Aakash Ahuja",
     "culturalFitAssessmentScore" : "Green",
