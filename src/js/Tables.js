@@ -129,7 +129,7 @@ export class TableTotalSummary extends MyTable {
         {tdColorCoded(a.knackPresentationFinalScore)}
         <td>{a.marketingProfile}</td>
         {tdColorCoded(sd.culturalFitAssessmentScore)}
-        {tdColorCoded(sd.logisticalReasoningScore)}
+        {tdColorCoded(sd.logisticalReasoning)}
         {tdColorCoded(a.finalScore)}
       </tr>
     );
