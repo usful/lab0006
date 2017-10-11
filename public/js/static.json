@@ -1,0 +1,27 @@
+{
+  "Jessica G": {
+    "name": "Jessica G",
+    "culturalFitAssessmentScore": "Green",
+    "logisticalReasoning": "Green"
+  },
+  "Alexandra P": {
+    "name": "Alexandra P",
+    "culturalFitAssessmentScore": "Green",
+    "logisticalReasoning": "Yellow"
+  },
+  "Casey P": {
+    "name": "Casey P",
+    "culturalFitAssessmentScore": "Green",
+    "logisticalReasoning": "Yellow"
+  },
+  "Katie Warndl": {
+    "name": "Katie Warndl",
+    "culturalFitAssessmentScore": "Green",
+    "logisticalReasoning": "Yellow"
+  },
+  "Clinton Robinson": {
+    "name": "Clinton Robinson",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoning": "Grey"
+  }
+}

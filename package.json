@@ -1,10 +1,10 @@
 {
   "name": "abi",
   "version": "1.0.0",
-  "description": "ABI Day 2016 Leaderboard React.js microsite",
+  "description": "ABI Day 2017 Leaderboard React.js microsite",
   "main": "webpack.config.js",
   "scripts": {
-    "www": "./node_modules/.bin/webpack-dev-server --content-base ./src --inline --hot --host 0.0.0.0",
+    "www": "./node_modules/.bin/webpack-dev-server --content-base ./public --inline --hot --host lane.int --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -14,24 +14,35 @@
   "author": "Patrick Buonaiuto",
   "license": "ISC",
   "dependencies": {
-    "babel-core": "^6.17.0",
-    "babel-loader": "^6.2.5",
+    "classnames": "^2.2.5",
+    "lodash": "^4.16.4",
+    "react": "^16.0.0",
+    "react-bootstrap": "^0.31.3",
+    "react-dom": "^16.0.0",
+    "whatwg-fetch": "^2.0.3",
+    "babel-polyfill": "^6.23.0",
+    "babel-runtime": "^6.23.0"
+  },
+  "devDependencies": {
+    "babel-plugin-lodash": "^3.2.9",
+    "webpack": "^3.7.0",
+    "webpack-dev-server": "^2.9.1",
+    "babel-core": "^6.23.1",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^7.1.2",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-react-html-attrs": "^2.0.0",
     "babel-plugin-transform-class-properties": "^6.16.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-preset-es2015": "^6.16.0",
-    "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0",
-    "classnames": "^2.2.5",
-    "lodash": "^4.16.4",
-    "react": "^15.3.2",
-    "react-bootstrap": "^0.30.5",
-    "react-dom": "^15.3.2"
-  },
-  "devDependencies": {
-    "babel-plugin-lodash": "^3.2.9",
-    "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.16.2"
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-plugin-transform-es2015-function-name": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.0.1"
   }
 }

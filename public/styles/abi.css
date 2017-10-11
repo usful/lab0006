@@ -11,15 +11,13 @@
 .master-container {
   width: 100%;
 }
-.master-container.abi-header
-{
+.master-container.abi-header {
   position: fixed;
   padding: 20px 0 38px 0;
   background-color: white;
   z-index: 300;
 }
-.master-container.abi-header .container
-{
+.master-container.abi-header .container {
   min-height: 42px;
   height: 40px;
 }
@@ -28,13 +26,11 @@
   position: fixed;
   z-index: 200;
 }
-.master-container.controls .container
-{
+.master-container.controls .container {
   min-height: 45px;
   background-color: white;
 }
-.master-container.leaderboard
-{
+.master-container.leaderboard {
   padding-top: 140px;
   z-index: 100;
 }
@@ -44,7 +40,7 @@
 .leaderboard .table.active {
   display: block;
 }
-.leaderboard .table > thead > tr  {
+.leaderboard .table > thead > tr {
   min-height: 57px;
   height: 57px;
   background-color: white;
@@ -64,7 +60,7 @@ img.logo {
 .nav-tabs > li {
   height: 42px;
 }
-.nav-tabs>li>a {
+.nav-tabs > li > a {
   margin: 0;
   font-size: 14px;
 }
@@ -79,40 +75,34 @@ img.logo {
   border-bottom: 0;
 }
 
-.table > thead > tr > th
-{
+.table > thead > tr > th {
   font-size: 14px;
 }
 .table > thead > tr,
-.table > tbody > tr
-{
+.table > tbody > tr {
 }
 .table > thead > tr > th,
 .table > thead > tr > td,
 .table > tbody > tr > th,
-.table > tbody > tr > td
-{
+.table > tbody > tr > td {
   min-width: 160px;
   min-height: 44px;
 }
 .table > thead > tr > th:first-child,
 .table > thead > tr > td:first-child,
 .table > tbody > tr > th:first-child,
-.table > tbody > tr > td:first-child
-{
+.table > tbody > tr > td:first-child {
   position: absolute;
   background-color: white;
 }
 .table > thead > tr > th:nth-child(2),
 .table > thead > tr > td:nth-child(2),
 .table > tbody > tr > th:nth-child(2),
-.table > tbody > tr > td:nth-child(2)
-{
+.table > tbody > tr > td:nth-child(2) {
   padding-left: 160px;
   min-width: 320px;
 }
-.table > thead > tr > th:first-child
-{
+.table > thead > tr > th:first-child {
   min-height: 58px;
 }
 
@@ -122,9 +112,8 @@ img.logo {
 .table > tbody > tr.detail.active {
   display: table-row;
 }
-.table>tbody>tr>th,
-.table>tbody>tr>td
-{
+.table > tbody > tr > th,
+.table > tbody > tr > td {
   padding: 8px 0;
 }
 .table .detail td {
@@ -153,13 +142,12 @@ img.logo {
   color: red;
 }
 
-.table>tbody>tr>td,
+.table > tbody > tr > td,
 thead th {
   vertical-align: middle;
   text-align: center;
 }
-.table>thead>tr>th
-{
+.table > thead > tr > th {
   vertical-align: top;
 }
 .table th:first-child {
@@ -221,8 +209,7 @@ span.color-coded {
 @media (max-width: 600px) {
   .abi-header {
   }
-  .master-container.abi-header
-  {
+  .master-container.abi-header {
     padding: 5px 0 5px 0;
   }
   .nav-tabs li {
@@ -235,8 +222,7 @@ span.color-coded {
   .master-container.controls {
     padding-top: 52px;
   }
-  .master-container.leaderboard
-  {
+  .master-container.leaderboard {
     padding-top: 255px;
   }
   .abi-header .btn-toolbar {
@@ -245,10 +231,12 @@ span.color-coded {
   .master-container.controls .btn-toolbar {
     display: block;
   }
-  .nav-tabs>li>a:hover {
+  .nav-tabs > li > a:hover {
     border-color: #e6e6e6dd;
   }
-  .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+  .nav-tabs > li.active > a,
+  .nav-tabs > li.active > a:hover,
+  .nav-tabs > li.active > a:focus {
     border: 1px solid grey;
   }
 }
@@ -268,8 +256,9 @@ span.color-coded {
     display: block;
     border: 0;
   }
-  .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus
-  {
+  .nav-tabs > li.active > a,
+  .nav-tabs > li.active > a:hover,
+  .nav-tabs > li.active > a:focus {
     border: 0;
   }
   .color-coded-grey {
@@ -278,8 +267,7 @@ span.color-coded {
   .table > thead > tr > th:first-child,
   .table > thead > tr > td:first-child,
   .table > tbody > tr > th:first-child,
-  .table > tbody > tr > td:first-child
-  {
+  .table > tbody > tr > td:first-child {
     position: relative;
     background-color: transparent;
   }
@@ -293,8 +281,7 @@ span.color-coded {
   .table > thead > tr > th,
   .table > thead > tr > td,
   .table > tbody > tr > th,
-  .table > tbody > tr > td
-  {
+  .table > tbody > tr > td {
     min-width: 0;
   }
 }

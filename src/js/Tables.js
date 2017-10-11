@@ -1,12 +1,15 @@
-import React from "react";
-import {Table} from 'react-bootstrap';
-import _ from 'lodash';
+import React from 'react';
+import { Table } from 'react-bootstrap';
 
 const MARKETING_ASSESSMENT = 'marketing assessment';
 
 function tdColorCoded(cc) {
   return (
-    <td ><span class={'color-coded color-coded-' + cc.toLowerCase()}>{cc.toUpperCase()}</span></td>
+    <td>
+      <span className={`color-coded color-coded-${cc.toLowerCase()}`}>
+        {cc.toUpperCase()}
+      </span>
+    </td>
   );
 }
 
@@ -14,18 +17,22 @@ function commentList(alist, cc) {
   if (cc) {
     return (
       <ul>
-        {
-          _.map(alist[cc].assessors, function (a) {
-            return (
-              <li class={'color-coded color-coded-' + cc}><span>{a.name}:&nbsp;</span><span>{a.comment}</span></li>
-            );
-          })
-        }
+        {alist[cc].assessors.map(a =>
+          <li className={'color-coded color-coded-' + cc}>
+            <span>
+              {a.name}:&nbsp;
+            </span>
+            <span>
+              {a.comment}
+            </span>
+          </li>
+        )}
       </ul>
     );
+  } else {
+    return null;
   }
 }
-
 
 class MyTable extends React.Component {
   constructor(th) {
@@ -36,27 +43,36 @@ class MyTable extends React.Component {
     this.state = {
       active: {
         row: null,
-        color: '',
+        color: ''
       }
     };
   }
 
   handleClick(row, color) {
-    row = (row === this.state.active.row && color === this.state.active.color) ? null : row;
-    const active = {row, color};
-    this.setState({active});
+    row =
+      row === this.state.active.row && color === this.state.active.color
+        ? null
+        : row;
+
+    const active = { row, color };
+
+    this.setState({ active });
   }
 
   tbody() {
-    const that = this;
     const data = this.tableSort(this.props.data);
+
     return (
       <tbody>
-      {
-        _.map(data, function (a, i) {
-          return that.row(a, i, (a.name in that.props.staticScores) ? that.props.staticScores[a.name] : a);
-        })
-      }
+        {data.map((a, i) =>
+          this.row(
+            a,
+            i,
+            a.name in this.props.staticScores
+              ? this.props.staticScores[a.name]
+              : a
+          )
+        )}
       </tbody>
     );
   }
@@ -64,18 +80,17 @@ class MyTable extends React.Component {
   tdColorCount(assessor, i, color) {
     const count = assessor[color].count;
     const style = {
-      'cursor': 'pointer'
+      cursor: 'pointer'
     };
 
     if (count > 0) {
       return (
-        <td style={style} onClick={this.handleClick.bind(this, i, color)}>{count}</td>
+        <td style={style} onClick={() => this.handleClick(i, color)}>
+          {count}
+        </td>
       );
-    }
-    else {
-      return (
-        <td>0</td>
-      );
+    } else {
+      return <td>0</td>;
     }
   }
 
@@ -83,7 +98,7 @@ class MyTable extends React.Component {
     return (
       <Table className={this.props.className} responsive>
         <thead>
-        {this.th}
+          {this.th}
         </thead>
         {this.tbody()}
       </Table>
@@ -95,13 +110,21 @@ class MyTable extends React.Component {
 export class TableTotalSummary extends MyTable {
   constructor() {
     super(
-      <tr class="col-7">
+      <tr className="col-7">
         <th>NAME</th>
-        <th>BUSINESS SIMULATION<br />FINAL SCORE</th>
-        <th>MARKETING ASSESSMENT<br />FINAL SCORE</th>
+        <th>
+          BUSINESS SIMULATION<br />FINAL SCORE
+        </th>
+        <th>
+          MARKETING ASSESSMENT<br />FINAL SCORE
+        </th>
         <th>MARKETING PROFILE</th>
-        <th>CULTURAL FIT<br />ASSESSMENT SCORE</th>
-        <th>LOGISTICAL<br />REASONING SCORE</th>
+        <th>
+          CULTURAL FIT<br />ASSESSMENT SCORE
+        </th>
+        <th>
+          LOGISTICAL<br />REASONING SCORE
+        </th>
         <th>FINAL SCORE</th>
       </tr>
     );
@@ -109,12 +132,15 @@ export class TableTotalSummary extends MyTable {
 
   tableSort(data) {
     const that = this;
-    return _.sortBy(data, [function (c) {
-      const i = _.indexOf(that.props.colorCodes, c.finalScore);
-      return (i >= 0) ? i : that.props.colorCodes.length - 1;
-    }, function (c) {
-      return c.name.split(' ').pop();
-    }]);
+    return _.sortBy(data, [
+      function(c) {
+        const i = _.indexOf(that.props.colorCodes, c.finalScore);
+        return i >= 0 ? i : that.props.colorCodes.length - 1;
+      },
+      function(c) {
+        return c.name.split(' ').pop();
+      }
+    ]);
   }
 
   row(a, i, sd) {
@@ -124,10 +150,16 @@ export class TableTotalSummary extends MyTable {
     // REST payload.
     return (
       <tr key={i}>
-        <th><span class="color-coded">{a.name}</span></th>
+        <th>
+          <span className="color-coded">
+            {a.name}
+          </span>
+        </th>
         {tdColorCoded(a.businessSimulationFinalScore)}
         {tdColorCoded(a.knackPresentationFinalScore)}
-        <td>{a.marketingProfile}</td>
+        <td>
+          {a.marketingProfile}
+        </td>
         {tdColorCoded(sd.culturalFitAssessmentScore)}
         {tdColorCoded(sd.logisticalReasoning)}
         {tdColorCoded(a.finalScore)}
@@ -140,48 +172,66 @@ export class TableTotalSummary extends MyTable {
 export class TableBusinessSimulation extends MyTable {
   constructor() {
     super(
-      <tr class="col-6">
+      <tr className="col-6">
         <th>NAME</th>
         <th>AVERAGE SCORE</th>
         <th>FINAL SCORE</th>
-        <th><span class="color-coded color-coded-green">GREEN</span></th>
-        <th><span class="color-coded color-coded-yellow">YELLOW</span></th>
-        <th><span class="color-coded color-coded-red">RED</span></th>
+        <th>
+          <span className="color-coded color-coded-green">GREEN</span>
+        </th>
+        <th>
+          <span className="color-coded color-coded-yellow">YELLOW</span>
+        </th>
+        <th>
+          <span className="color-coded color-coded-red">RED</span>
+        </th>
       </tr>
     );
   }
 
   tableSort(data) {
     const that = this;
-    return _.sortBy(data, [function (c) {
-      const i = _.indexOf(that.props.colorCodes, c['business simulation'].averageScore);
-      return (i >= 0) ? i : that.props.colorCodes.length - 1;
-    }, function (c) {
-      return c.name.split(' ').pop();
-    }]);
+    return _.sortBy(data, [
+      function(c) {
+        const i = _.indexOf(
+          that.props.colorCodes,
+          c['business simulation'].averageScore
+        );
+        return i >= 0 ? i : that.props.colorCodes.length - 1;
+      },
+      function(c) {
+        return c.name.split(' ').pop();
+      }
+    ]);
   }
 
   row(a, i) {
     const assessor = a['business simulation'].assessor;
-    return (
-      [
-        <tr key={i}>
-          <th><span class="color-function-coded">{a.name}</span></th>
-          {tdColorCoded(a['business simulation'].averageScore)}
-          {tdColorCoded(a['business simulation'].finalScore)}
-          {this.tdColorCount(assessor, i, 'green')}
-          {this.tdColorCount(assessor, i, 'yellow')}
-          {this.tdColorCount(assessor, i, 'red')}
-        </tr>
-        ,
-        <tr key={i + 'detail'} class={ ['detail', this.state.active.row === i ? 'active' : ''].join(' ') }>
-          <th></th>
-          <td></td>
-          <td></td>
-          <td colSpan="3">{commentList(assessor, this.state.active.color)}</td>
-        </tr>
-      ]
-    );
+    return [
+      <tr key={i}>
+        <th>
+          <span className="color-function-coded">
+            {a.name}
+          </span>
+        </th>
+        {tdColorCoded(a['business simulation'].averageScore)}
+        {tdColorCoded(a['business simulation'].finalScore)}
+        {this.tdColorCount(assessor, i, 'green')}
+        {this.tdColorCount(assessor, i, 'yellow')}
+        {this.tdColorCount(assessor, i, 'red')}
+      </tr>,
+      <tr
+        key={`${i}detail`}
+        className={`detail ${this.state.active.row === i ? 'active' : ''}`}
+      >
+        <th />
+        <td />
+        <td />
+        <td colSpan="3">
+          {commentList(assessor, this.state.active.color)}
+        </td>
+      </tr>
+    ];
   }
 }
 
@@ -189,13 +239,19 @@ export class TableBusinessSimulation extends MyTable {
 export class TableMarketingAssessment extends MyTable {
   constructor() {
     super(
-      <tr class="col-8">
+      <tr className="col-8">
         <th>NAME</th>
         <th>AVERAGE SCORE</th>
         <th>FINAL SCORE</th>
-        <th><span class="color-coded color-coded-green">GREEN</span></th>
-        <th><span class="color-coded color-coded-yellow">YELLOW</span></th>
-        <th><span class="color-coded color-coded-red">RED</span></th>
+        <th>
+          <span className="color-coded color-coded-green">GREEN</span>
+        </th>
+        <th>
+          <span className="color-coded color-coded-yellow">YELLOW</span>
+        </th>
+        <th>
+          <span className="color-coded color-coded-red">RED</span>
+        </th>
         <th>MARKETING PROFILE YES</th>
         <th>MARKETING PROFILE NO</th>
       </tr>
@@ -204,47 +260,74 @@ export class TableMarketingAssessment extends MyTable {
 
   tableSort(data) {
     const that = this;
-    return _.sortBy(data, [function (c) {
-      const i = _.indexOf(that.props.colorCodes, c[MARKETING_ASSESSMENT].averageScore);
-      return (i >= 0) ? i : that.props.colorCodes.length - 1;
-    }, function (c) {
-      return c.name.split(' ').pop();
-    }]);
+    return _.sortBy(data, [
+      function(c) {
+        const i = _.indexOf(
+          that.props.colorCodes,
+          c[MARKETING_ASSESSMENT].averageScore
+        );
+        return i >= 0 ? i : that.props.colorCodes.length - 1;
+      },
+      function(c) {
+        return c.name.split(' ').pop();
+      }
+    ]);
   }
 
   row(a, i) {
     const assessor = a[MARKETING_ASSESSMENT].assessor;
-    return (
-      [
-        <tr key={i}>
-          <th><span class="color-code">{a.name}</span></th>
-          {tdColorCoded(a[MARKETING_ASSESSMENT].averageScore)}
-          {tdColorCoded(a[MARKETING_ASSESSMENT].finalScore)}
-          {this.tdColorCount(assessor, i, 'green')}
-          {this.tdColorCount(assessor, i, 'yellow')}
-          {this.tdColorCount(assessor, i, 'red')}
-          <td>{a[MARKETING_ASSESSMENT].assessor.marketingProfileYes}</td>
-          <td>{a[MARKETING_ASSESSMENT].assessor.marketingProfileNo}</td>
-        </tr>,
-        <tr key={i + 'detail'} class={ ['detail', this.state.active.row === i ? 'active' : ''].join(' ') }>
-          <th></th>
-          <td></td>
-          <td></td>
-          <td colSpan="5">{commentList(assessor, this.state.active.color)}</td>
-        </tr>
-      ]
-    );
+    return [
+      <tr key={i}>
+        <th>
+          <span className="color-code">
+            {a.name}
+          </span>
+        </th>
+        {tdColorCoded(a[MARKETING_ASSESSMENT].averageScore)}
+        {tdColorCoded(a[MARKETING_ASSESSMENT].finalScore)}
+        {this.tdColorCount(assessor, i, 'green')}
+        {this.tdColorCount(assessor, i, 'yellow')}
+        {this.tdColorCount(assessor, i, 'red')}
+        <td>
+          {a[MARKETING_ASSESSMENT].assessor.marketingProfileYes}
+        </td>
+        <td>
+          {a[MARKETING_ASSESSMENT].assessor.marketingProfileNo}
+        </td>
+      </tr>,
+      <tr
+        key={i + 'detail'}
+        className={['detail', this.state.active.row === i ? 'active' : ''].join(
+          ' '
+        )}
+      >
+        <th />
+        <td />
+        <td />
+        <td colSpan="5">
+          {commentList(assessor, this.state.active.color)}
+        </td>
+      </tr>
+    ];
   }
 }
 
 export default class CandidateTable extends React.Component {
   render() {
-    console.log('Rendering Leaderboards');
     return (
       <div className="leaderboard">
-        <TableTotalSummary className={this.props.activeTable === 1 ? 'active' : ''} {...this.props} />
-        <TableBusinessSimulation className={this.props.activeTable === 2 ? 'active' : ''} {...this.props} />
-        <TableMarketingAssessment className={this.props.activeTable === 3 ? 'active' : ''} {...this.props} />
+        <TableTotalSummary
+          className={this.props.activeTable === 1 ? 'active' : ''}
+          {...this.props}
+        />
+        <TableBusinessSimulation
+          className={this.props.activeTable === 2 ? 'active' : ''}
+          {...this.props}
+        />
+        <TableMarketingAssessment
+          className={this.props.activeTable === 3 ? 'active' : ''}
+          {...this.props}
+        />
       </div>
     );
   }
