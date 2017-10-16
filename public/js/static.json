@@ -1,27 +1,272 @@
 {
-  "Jessica G": {
-    "name": "Jessica G",
-    "culturalFitAssessmentScore": "Green",
-    "logisticalReasoning": "Green"
-  },
-  "Alexandra P": {
-    "name": "Alexandra P",
-    "culturalFitAssessmentScore": "Green",
-    "logisticalReasoning": "Yellow"
-  },
-  "Casey P": {
-    "name": "Casey P",
-    "culturalFitAssessmentScore": "Green",
-    "logisticalReasoning": "Yellow"
-  },
-  "Katie Warndl": {
-    "name": "Katie Warndl",
-    "culturalFitAssessmentScore": "Green",
-    "logisticalReasoning": "Yellow"
-  },
-  "Clinton Robinson": {
-    "name": "Clinton Robinson",
+  "Sory Kabore": {
+    "name": "Sory Kabore",
     "culturalFitAssessmentScore": "Grey",
-    "logisticalReasoning": "Grey"
+    "logisticalReasoningScore": "Grey"
+  },
+  "Tabitha Poeze": {
+    "name": "Tabitha Poeze",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Cassie Vella": {
+    "name": "Cassie Vella",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Jenny Diemer": {
+    "name": "Jenny Diemer",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Lisa Chen": {
+    "name": "Lisa Chen",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Jason Thandal": {
+    "name": "Jason Thandal",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Santino Pecora": {
+    "name": "Santino Pecora",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Kevin Delahunt": {
+    "name": "Kevin Delahunt",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Matthew McCreight": {
+    "name": "Matthew McCreight",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Nataly Gonzalez": {
+    "name": "Nataly Gonzalez",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Richard Waller": {
+    "name": "Richard Waller",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Natalie Wroblewski": {
+    "name": "Natalie Wroblewski",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Kelsey Edgecombe": {
+    "name": "Kelsey Edgecombe",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Rodrigo Trigueros": {
+    "name": "Rodrigo Trigueros",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Amanda Gandier,": {
+    "name": "Amanda Gandier,",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Artem Sushko": {
+    "name": "Artem Sushko",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Nicole Moncada": {
+    "name": "Nicole Moncada",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Rachel Gladwish": {
+    "name": "Rachel Gladwish",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Cynthia Ho": {
+    "name": "Cynthia Ho",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Chad Upmanu": {
+    "name": "Chad Upmanu",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Arshiya Sehgal": {
+    "name": "Arshiya Sehgal",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Gillian Francis": {
+    "name": "Gillian Francis",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Moneika Ramsinghani": {
+    "name": "Moneika Ramsinghani",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Sarah Douglas": {
+    "name": "Sarah Douglas",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Alex Utting": {
+    "name": "Alex Utting",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Violeta Vukoje": {
+    "name": "Violeta Vukoje",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Emily McLean": {
+    "name": "Emily McLean",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Andrew Litt": {
+    "name": "Andrew Litt",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Morgan Johnson": {
+    "name": "Morgan Johnson",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Rosalyn Pearlman": {
+    "name": "Rosalyn Pearlman",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Julia Choi": {
+    "name": "Julia Choi",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Eric Bang Tri Tran": {
+    "name": "Eric Bang Tri Tran",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Cerolia Yu Lim Kim": {
+    "name": "Cerolia Yu Lim Kim",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Amelia Martin": {
+    "name": "Amelia Martin",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Duncan Callum": {
+    "name": "Duncan Callum",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Kanishk Chadha": {
+    "name": "Kanishk Chadha",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Deeshay Heeramun": {
+    "name": "Deeshay Heeramun",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Morgan Renkema": {
+    "name": "Morgan Renkema",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Lyndan Lam": {
+    "name": "Lyndan Lam",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Michelle Lee": {
+    "name": "Michelle Lee",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Elliot Boake": {
+    "name": "Elliot Boake",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Elise Hewat": {
+    "name": "Elise Hewat",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Phoebe Balshin": {
+    "name": "Phoebe Balshin",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Edmund Ong": {
+    "name": "Edmund Ong",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Lucie Beaulac-Couture": {
+    "name": "Lucie Beaulac-Couture",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Oana Jurjica": {
+    "name": "Oana Jurjica",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Daniel Paniccia": {
+    "name": "Daniel Paniccia",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Jijun Xian": {
+    "name": "Jijun Xian",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Alison Ferguson": {
+    "name": "Alison Ferguson",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Jesse De Groote": {
+    "name": "Jesse De Groote",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Yash Shah": {
+    "name": "Yash Shah",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Daryl Chung": {
+    "name": "Daryl Chung",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Chen Liang": {
+    "name": "Chen Liang",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
+  },
+  "Adam Harun": {
+    "name": "Adam Harun",
+    "culturalFitAssessmentScore": "Grey",
+    "logisticalReasoningScore": "Grey"
   }
 }

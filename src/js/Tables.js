@@ -2,6 +2,7 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 
 const MARKETING_ASSESSMENT = 'marketing assessment';
+const BUSINESS_SIMULATION = 'business simulation';
 
 function tdColorCoded(cc) {
   return (
@@ -148,6 +149,7 @@ export class TableTotalSummary extends MyTable {
     // use the data returned by the REST call. This allows removing the static data
     // at some future date and the server side code can simply add the data to the
     // REST payload.
+    
     return (
       <tr key={i}>
         <th>
@@ -161,7 +163,7 @@ export class TableTotalSummary extends MyTable {
           {a.marketingProfile}
         </td>
         {tdColorCoded(sd.culturalFitAssessmentScore)}
-        {tdColorCoded(sd.logisticalReasoning)}
+        {tdColorCoded(sd.logisticalReasoningScore)}
         {tdColorCoded(a.finalScore)}
       </tr>
     );
@@ -195,7 +197,7 @@ export class TableBusinessSimulation extends MyTable {
       function(c) {
         const i = _.indexOf(
           that.props.colorCodes,
-          c['business simulation'].averageScore
+          c[BUSINESS_SIMULATION].averageScore
         );
         return i >= 0 ? i : that.props.colorCodes.length - 1;
       },
@@ -206,7 +208,7 @@ export class TableBusinessSimulation extends MyTable {
   }
 
   row(a, i) {
-    const assessor = a['business simulation'].assessor;
+    const assessor = a[BUSINESS_SIMULATION].assessor;
     return [
       <tr key={i}>
         <th>
@@ -214,8 +216,8 @@ export class TableBusinessSimulation extends MyTable {
             {a.name}
           </span>
         </th>
-        {tdColorCoded(a['business simulation'].averageScore)}
-        {tdColorCoded(a['business simulation'].finalScore)}
+        {tdColorCoded(a[BUSINESS_SIMULATION].averageScore)}
+        {tdColorCoded(a[BUSINESS_SIMULATION].finalScore)}
         {this.tdColorCount(assessor, i, 'green')}
         {this.tdColorCount(assessor, i, 'yellow')}
         {this.tdColorCount(assessor, i, 'red')}
