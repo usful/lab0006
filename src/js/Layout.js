@@ -103,7 +103,7 @@ export default class Layout extends React.Component {
 
           // Aggregates broken down by assessment catagory and
           // relates to the Leaderboard Tab #
-          'business simulation': {
+          [BUSINESS_SIMULATION]: {
             // Tab #2
             averageScore: 'grey',
             finalScore: 'grey',
@@ -226,9 +226,7 @@ export default class Layout extends React.Component {
         );
 
         // color code counts
-        data[
-          i
-        ][r.question1.toLowerCase()][r.type][r.question2.toLowerCase()].count++;
+        data[i][r.question1.toLowerCase()][r.type][r.question2.toLowerCase()].count++;
 
         // assessor list contributing to this score
         data[i][r.question1.toLowerCase()][r.type][
@@ -245,7 +243,7 @@ export default class Layout extends React.Component {
           data[i][r.question1.toLowerCase()][r.type].marketingProfileNo++;
 
         // average/final score based on highest count
-        _.each(['business simulation', MARKETING_ASSESSMENT], function(s) {
+        _.each([BUSINESS_SIMULATION, MARKETING_ASSESSMENT], function(s) {
           _.each(
             [
               { type: 'assessor', key: 'averageScore' },
@@ -274,11 +272,11 @@ export default class Layout extends React.Component {
 
       // Summary Data
       data[i].businessSimulationFinalScore =
-        data[i]['business simulation'].finalScore;
+        data[i][BUSINESS_SIMULATION].finalScore;
       data[i].knackPresentationFinalScore =
         data[i][MARKETING_ASSESSMENT].finalScore;
 
-      data[i].finalScore = (function(bs, ks) {
+      data[i].finalScore =  (function(bs, ks) {
         return bs === ks ? bs : 'GREY';
       })(
         data[i].businessSimulationFinalScore,

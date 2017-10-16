@@ -106,7 +106,7 @@ class MyTable extends React.Component {
   }
 }
 
-// Tab #1
+// Tab #1Total
 export class TableTotalSummary extends MyTable {
   constructor() {
     super(
@@ -277,7 +277,7 @@ export class TableMarketingAssessment extends MyTable {
   row(a, i) {
     const assessor = a[MARKETING_ASSESSMENT].assessor;
     return [
-      <tr key={i}>
+      <tr key={`tr${i}`}>
         <th>
           <span className="color-code">
             {a.name}
@@ -296,10 +296,8 @@ export class TableMarketingAssessment extends MyTable {
         </td>
       </tr>,
       <tr
-        key={i + 'detail'}
-        className={['detail', this.state.active.row === i ? 'active' : ''].join(
-          ' '
-        )}
+        key={`${i}detail`}
+        className={`detail${this.state.active.row === i ? 'active' : ''}`}
       >
         <th />
         <td />
